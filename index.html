@@ -130,18 +130,17 @@
   </div>
 
   <!-- 🎵 Musik -->
-  <audio id="loveSong" src="music/perfect.mp3" preload="auto" autoplay loop></audio>
+  <audio id="loveSong" src="music/perfect.mp3" preload="auto" loop></audio>
 
   <script>
     const song = document.getElementById("loveSong");
     song.volume = 0.5;
 
-    // Putar otomatis saat halaman selesai dimuat
-    window.addEventListener("load", () => {
-      song.play().catch(err => console.log("Autoplay mungkin diblokir:", err));
-    });
-
     function showLove() {
+      // 🎵 Putar musik saat tombol diklik
+      song.currentTime = 0;
+      song.play();
+
       const msgElement = document.getElementById("loveMessage");
       const subMsgElement = document.getElementById("subMessage");
       const text = "❤️ HAPPY BIRTHDAY ❤️";

@@ -168,10 +168,22 @@
       <div class="sub-message" id="subMessage"></div>
     </div>
 
-    <!-- 🎵 Musik dari folder GitHub kamu -->
-    <audio id="loveSong" src="music/perfect.mp3"></audio>
+    <!-- 🎵 Musik dari folder GitHub -->
+    <audio id="loveSong" src="music/perfect.mp3" preload="auto" autoplay loop muted></audio>
 
     <script>
+      // Hilangkan mute setelah ada interaksi pertama
+      document.addEventListener(
+        "click",
+        () => {
+          const song = document.getElementById("loveSong");
+          song.muted = false;
+          song.volume = 0.5; // atur volume 50%
+          song.play().catch((err) => console.log("Autoplay diblokir:", err));
+        },
+        { once: true }
+      );
+
       function showLove() {
         const song = document.getElementById("loveSong");
         song.currentTime = 0;
@@ -192,7 +204,8 @@
             setTimeout(typeWriter, 120);
           } else {
             setTimeout(() => {
-              const sweetMessage = "Dari Rabull🫰 love you wkwk ❤️<br>Aku tahu kamu selalu berusaha ngelakuin yang terbaik, dan aku bener-bener kagum sama kamu. Terus semangat ya, jangan lupa jaga kesehatan juga 💫 ";
+              const sweetMessage =
+                "Dari Rabull🫰 love you wkwk ❤️<br>Aku tahu kamu selalu berusaha ngelakuin yang terbaik, dan aku bener-bener kagum sama kamu. Terus semangat ya, jangan lupa jaga kesehatan juga 💫 ";
               subMsgElement.innerHTML = sweetMessage;
               subMsgElement.style.display = "block";
 
@@ -201,7 +214,8 @@
                 html: `<div style="font-size: 16px; line-height: 1.4em; text-align: center;">
                   Selamat ulang tahun ya sayang 🎂✨ Semoga di umurmu yang baru ini, hidupmu selalu dipenuhi kebahagiaan, cinta, dan hal-hal baik yang kamu harapkan. Aku tahu jadi guru TK itu nggak mudah, tapi kamu selalu sabar, tulus, dan penuh kasih. Anak-anak beruntung banget punya kamu, dan semoga aku juga beruntung bisa punya kamu. Tetap semangat ya, aku bakal selalu ada buat kamu ❤️
                 </div>`,
-                imageUrl: "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
+                imageUrl:
+                  "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
                 imageWidth: 150,
                 imageHeight: 150,
                 width: 400,

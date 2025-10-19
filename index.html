@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Tiwi ❤️</title>
 
-    <!-- Meta tag untuk preview WhatsApp -->
     <meta property="og:title" content="For Tiwi Perempuan 10/10 ❤️" />
     <meta property="og:description" content="From Rabull 🫰🏻🫶🏻." />
     <meta property="og:image" content="images/tiwi1.jpg" />
     <meta property="og:url" content="https://namadomainkamu.com" />
     <meta property="og:type" content="website" />
 
-    <!-- Untuk kompatibilitas Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="For Tiwi Perempuan 10/10 ❤️" />
     <meta name="twitter:description" content="From Rabull🫰🏻🫶🏻." />
     <meta name="twitter:image" content="images/tiwi1.jpg" />
 
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
@@ -119,43 +116,6 @@
           opacity: 0;
         }
       }
-      .swal2-container {
-        align-items: center !important;
-        justify-content: center !important;
-      }
-      .swal2-popup {
-        margin: 0 !important;
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-      }
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      @keyframes fade-out {
-        from {
-          opacity: 1;
-          transform: scale(1);
-        }
-        to {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-      }
-      .swal2-animate-fade-in {
-        animation: fade-in 0.5s forwards;
-      }
-      .swal2-animate-fade-out {
-        animation: fade-out 0.4s forwards;
-      }
     </style>
   </head>
 
@@ -168,27 +128,21 @@
       <div class="sub-message" id="subMessage"></div>
     </div>
 
-    <!-- 🎵 Musik dari folder GitHub -->
-    <audio id="loveSong" src="music/perfect.mp3" preload="auto" autoplay loop muted></audio>
+    <!-- 🎵 Musik -->
+    <audio id="loveSong" src="music/perfect.mp3" preload="auto" autoplay loop></audio>
 
     <script>
-      // Hilangkan mute setelah ada interaksi pertama
-      document.addEventListener(
-        "click",
-        () => {
-          const song = document.getElementById("loveSong");
-          song.muted = false;
-          song.volume = 0.5; // atur volume 50%
-          song.play().catch((err) => console.log("Autoplay diblokir:", err));
-        },
-        { once: true }
-      );
+      const song = document.getElementById("loveSong");
+      song.volume = 0.5;
+
+      // Paksa play saat halaman sudah benar-benar termuat
+      window.addEventListener("load", () => {
+        song.play().catch((err) => {
+          console.log("Autoplay mungkin diblokir:", err);
+        });
+      });
 
       function showLove() {
-        const song = document.getElementById("loveSong");
-        song.currentTime = 0;
-        song.play().catch((err) => console.log("Autoplay diblokir:", err));
-
         let msgElement = document.getElementById("loveMessage");
         let subMsgElement = document.getElementById("subMessage");
         let text = "❤️ HAPPY BIRTHDAY ❤️";
@@ -208,23 +162,6 @@
                 "Dari Rabull🫰 love you wkwk ❤️<br>Aku tahu kamu selalu berusaha ngelakuin yang terbaik, dan aku bener-bener kagum sama kamu. Terus semangat ya, jangan lupa jaga kesehatan juga 💫 ";
               subMsgElement.innerHTML = sweetMessage;
               subMsgElement.style.display = "block";
-
-              Swal.fire({
-                title: "💖 Aku Bangga Sama Kamu!",
-                html: `<div style="font-size: 16px; line-height: 1.4em; text-align: center;">
-                  Selamat ulang tahun ya sayang 🎂✨ Semoga di umurmu yang baru ini, hidupmu selalu dipenuhi kebahagiaan, cinta, dan hal-hal baik yang kamu harapkan. Aku tahu jadi guru TK itu nggak mudah, tapi kamu selalu sabar, tulus, dan penuh kasih. Anak-anak beruntung banget punya kamu, dan semoga aku juga beruntung bisa punya kamu. Tetap semangat ya, aku bakal selalu ada buat kamu ❤️
-                </div>`,
-                imageUrl:
-                  "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
-                imageWidth: 150,
-                imageHeight: 150,
-                width: 400,
-                background: "#ffe6eb",
-                confirmButtonText: "💌 Klik Dulu Tombol Cinta 😄",
-                confirmButtonColor: "#ff4b2b",
-                showClass: { popup: "swal2-show swal2-animate-fade-in" },
-                hideClass: { popup: "swal2-hide swal2-animate-fade-out" },
-              });
             }, 500);
           }
         }

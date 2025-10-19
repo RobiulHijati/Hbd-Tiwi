@@ -168,15 +168,15 @@
       <div class="sub-message" id="subMessage"></div>
     </div>
 
-    <!-- 🎵 Musik otomatis dari folder music -->
-    <audio id="loveSong" src="music/perfect.mp3" autoplay loop preload="auto"></audio>
+    <!-- 🎵 Musik dari folder GitHub kamu -->
+    <audio id="loveSong" src="music/perfect.mp3"></audio>
 
     <script>
-      // Atur volume musik
-      const song = document.getElementById("loveSong");
-      song.volume = 0.5;
-
       function showLove() {
+        const song = document.getElementById("loveSong");
+        song.currentTime = 0;
+        song.play().catch((err) => console.log("Autoplay diblokir:", err));
+
         let msgElement = document.getElementById("loveMessage");
         let subMsgElement = document.getElementById("subMessage");
         let text = "❤️ HAPPY BIRTHDAY ❤️";

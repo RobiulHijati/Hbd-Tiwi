@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Tiwi ❤️</title>
+
+    <!-- Meta tag untuk preview WhatsApp -->
+    <meta property="og:title" content="For Tiwi Perempuan 10/10 ❤️" />
+    <meta property="og:description" content="From Rabull 🫰🏻🫶🏻." />
+    <meta property="og:image" content="images/tiwi1.jpg" />
+    <meta property="og:url" content="https://namadomainkamu.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Untuk kompatibilitas Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="For Tiwi Perempuan 10/10 ❤️" />
+    <meta name="twitter:description" content="From Rabull🫰🏻🫶🏻." />
+    <meta name="twitter:image" content="images/tiwi1.jpg" />
+
+    <!-- SweetAlert2 untuk pop-up cantik -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        text-align: center;
+        position: relative;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+        z-index: 2;
+      }
+      h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        color: white;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        margin: 0;
+      }
+      .profile-pic {
+        width: 200px; /* sesuaikan ukuran */
+        height: auto;
+        object-fit: contain; /* agar gambar tetap utuh */
+        margin-top: 10px;
+      }
+      button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        color: white;
+        background: linear-gradient(45deg, #ff4b2b, #ff416c);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+      .message {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+        font-family: "Lobster", cursive;
+        background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff9a9e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        display: none;
+        animation: glow 1.5s infinite alternate;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        max-width: 90vw;
+      }
+      .sub-message {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        font-family: "Dancing Script", cursive;
+        color: rgba(255, 255, 255, 0.9);
+        display: none;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        letter-spacing: 1px;
+        max-width: 90vw;
+        line-height: 1.5em;
+      }
+      @keyframes glow {
+        from {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ff4b2b;
+        }
+        to {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ff416c;
+        }
+      }
+      .heart {
+        position: absolute;
+        color: red;
+        animation: fall linear forwards;
+        z-index: 1;
+        top: 0;
+      }
+      @keyframes fall {
+        from {
+          transform: translateY(-20px);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+
+      /* FIX posisi pop-up agar tidak bergerak di HP */
+      .swal2-container {
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .swal2-popup {
+        margin: 0 !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+      }
+
+      /* Animasi fade pop-up */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+      }
+      .swal2-animate-fade-in {
+        animation: fade-in 0.5s forwards;
+      }
+      .swal2-animate-fade-out {
+        animation: fade-out 0.4s forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hai Tiwi Sayang ❤️</h1>
+      <img src="images/tiwi1.jpg" alt="Tiwi" class="profile-pic" />
+      <button onclick="showLove()">Klik Aku!</button>
+      <div class="message" id="loveMessage"></div>
+      <div class="sub-message" id="subMessage"></div>
+    </div>
+
+    <!-- Musik -->
+    <audio id="loveSong" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
+
+    <script>
+      function showLove() {
+        const song = document.getElementById("loveSong");
+        song.currentTime = 0;
+        song.play().catch((err) => console.log("Autoplay diblokir, klik lagi:", err));
+
+        let msgElement = document.getElementById("loveMessage");
+        let subMsgElement = document.getElementById("subMessage");
+        let text = "❤️ HAPPY BIRTHDAY ❤️";
+        msgElement.innerHTML = "";
+        msgElement.style.display = "block";
+        subMsgElement.style.display = "none";
+
+        let i = 0;
+        function typeWriter() {
+          if (i < text.length) {
+            msgElement.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 120);
+          } else {
+            setTimeout(() => {
+              const sweetMessage = "Dari rabull🫰 love you wkwk ❤️<br>Aku tahu kamu selalu berusaha ngelakuin yang terbaik, dan aku bener-bener kagum sama kamu. Terus semangat ya, jangan lupa jaga kesehatan juga 💫 ";
+              subMsgElement.innerHTML = sweetMessage;
+              subMsgElement.style.display = "block";
+
+              Swal.fire({
+                title: "💖 Aku Bangga Sama Kamu!",
+                html: `<div style="font-size: 16px; line-height: 1.4em; text-align: center; word-wrap: break-word; max-width: 100%;">
+                  Selamat ulang tahun ya sayang 🎂✨ Semoga di umurmu yang baru ini, hidupmu selalu dipenuhi kebahagiaan, cinta, dan hal-hal baik yang kamu harapkan. Aku tahu jadi guru TK itu nggak mudah, tapi kamu selalu sabar, tulus, dan penuh kasih. Anak-anak beruntung banget punya kamu, dan semoga aku juga beruntung bisa punya kamu. Tetap semangat ya, aku bakal selalu ada buat kamu ❤️<br><br>
+    Aku mungkin belum bisa jadi siapa-siapa buat kamu, tapi aku tulus pengen ada di sisi kamu — 
+    dukung kamu, nyemangatin kamu, dan semoga suatu hari bisa jadi alasan kamu senyum ❤️
+                </div>`,
+                imageUrl: "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
+                imageWidth: 150,
+                imageHeight: 150,
+                width: 400,
+                background: "#ffe6eb",
+                confirmButtonText: "💌 Klik Dulu Tombol Cinta ni😄",
+                confirmButtonColor: "#ff4b2b",
+                position: "center",
+                grow: false,
+                showClass: { popup: "swal2-show swal2-animate-fade-in" },
+                hideClass: { popup: "swal2-hide swal2-animate-fade-out" },
+              });
+            }, 500);
+          }
+        }
+        typeWriter();
+        startHearts();
+      }
+
+      function startHearts() {
+        function createHeart() {
+          let heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.fontSize = 20 + Math.random() * 30 + "px";
+          heart.innerText = "❤️";
+          heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+          document.body.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 5000);
+          setTimeout(createHeart, 150);
+        }
+        createHeart();
+      }
+    </script>
+  </body>
+</html>

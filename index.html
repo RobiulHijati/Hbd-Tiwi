@@ -111,6 +111,18 @@
       z-index: 1;
     }
 
+    .photo-fall{
+    position:absolute;
+    top:-80px;
+    width:60px;
+    height:60px;
+    border-radius:15px;
+    object-fit:cover;
+    animation:fall linear forwards;
+    z-index:1;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+    }
+
     @keyframes fall {
       to {
         transform: translateY(110vh);
@@ -233,30 +245,42 @@ function showLove(){
 
 function startHearts(){
 
-    function createHeart(){
+    function createItem(){
 
+        // ❤️ Love
         const heart=document.createElement("div");
-
         heart.className="heart";
-
         heart.innerHTML="❤️";
-
         heart.style.left=Math.random()*100+"vw";
-
-        heart.style.fontSize=(20+Math.random()*30)+"px";
-
+        heart.style.fontSize=(20+Math.random()*35)+"px";
         heart.style.animationDuration=(3+Math.random()*3)+"s";
 
         document.body.appendChild(heart);
 
-        setTimeout(()=>heart.remove(),6000);
+        setTimeout(()=>{
+            heart.remove();
+        },6000);
 
-        setTimeout(createHeart,150);
+        // 📸 Foto
+        const photo=document.createElement("img");
+        photo.src="images/zagi1.jpg"; // ganti kalau nama fotonya berbeda
+        photo.className="photo-fall";
+        photo.style.left=Math.random()*100+"vw";
+        photo.style.width=(45+Math.random()*30)+"px";
+        photo.style.height=photo.style.width;
+        photo.style.animationDuration=(4+Math.random()*3)+"s";
+        photo.style.transform=`rotate(${Math.random()*360}deg)`;
 
+        document.body.appendChild(photo);
+
+        setTimeout(()=>{
+            photo.remove();
+        },7000);
+
+        setTimeout(createItem,180);
     }
 
-    createHeart();
-
+    createItem();
 }
 
 </script>

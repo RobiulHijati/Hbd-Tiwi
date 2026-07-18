@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Tiwi ❤️</title>
+  <title>For Zagi ❤️</title>
 
-  <!-- Meta tag untuk preview -->
-  <meta property="og:title" content="Untuk Tiwi Perempuan 10/10 ❤️" />
-  <meta property="og:description" content="From Rabull 🫰🏻🫶🏻." />
-  <meta property="og:image" content="images/tiwi1.jpg" />
+  <!-- Meta Preview -->
+  <meta property="og:title" content="Untuk Zagi ❤️" />
+  <meta property="og:description" content="From Rabull ❤️" />
+  <meta property="og:image" content="images/zagi1.jpg" />
   <meta property="og:url" content="https://namadomainkamu.com" />
   <meta property="og:type" content="website" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Untuk Tiwi Perempuan 10/10 ❤️" />
-  <meta name="twitter:description" content="From Rabull🫰🏻🫶🏻." />
-  <meta name="twitter:image" content="images/tiwi1.jpg" />
+  <meta name="twitter:title" content="Untuk Zagi ❤️" />
+  <meta name="twitter:description" content="From Rabull ❤️" />
+  <meta name="twitter:image" content="images/zagi1.jpg" />
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
-    body {
+
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       height: 100vh;
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -34,86 +39,81 @@
       text-align: center;
       position: relative;
     }
+
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: 15px;
-      position: relative;
       z-index: 2;
     }
+
     h1 {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
       color: white;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      text-shadow: 0 0 15px rgba(255,255,255,.8);
     }
+
     .profile-pic {
-      width: 200px;
-      height: auto;
-      object-fit: contain;
-      margin-top: 10px;
+      width: 220px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.3);
     }
+
     button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      color: white;
-      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+      padding: 15px 35px;
       border: none;
       border-radius: 30px;
+      background: linear-gradient(45deg,#ff416c,#ff4b2b);
+      color: white;
+      font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
+      transition: .3s;
     }
+
     button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(1.08);
     }
+
     .message {
-      font-size: clamp(1.5rem, 6vw, 3rem);
+      display: none;
       font-family: "Lobster", cursive;
-      background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff9a9e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      display: none;
+      font-size: clamp(2rem,5vw,3.2rem);
+      color: white;
+      text-shadow: 0 0 15px red;
       animation: glow 1.5s infinite alternate;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      max-width: 90vw;
     }
+
     .sub-message {
-      font-size: clamp(1rem, 4vw, 1.3rem);
-      font-family: "Dancing Script", cursive;
-      color: rgba(255, 255, 255, 0.9);
       display: none;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-      letter-spacing: 1px;
-      max-width: 90vw;
-      line-height: 1.5em;
+      color: white;
+      font-size: 22px;
+      font-family: "Dancing Script", cursive;
+      width: 90%;
+      line-height: 1.6;
+      text-shadow: 0 0 8px rgba(255,255,255,.8);
     }
+
     @keyframes glow {
       from {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ff4b2b;
+        text-shadow: 0 0 10px #ff416c;
       }
       to {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ff416c;
+        text-shadow: 0 0 25px red;
       }
     }
+
     .heart {
       position: absolute;
+      top: -20px;
       color: red;
       animation: fall linear forwards;
       z-index: 1;
-      top: 0;
     }
+
     @keyframes fall {
-      from {
-        transform: translateY(-20px);
-        opacity: 1;
-      }
       to {
-        transform: translateY(100vh);
+        transform: translateY(110vh);
         opacity: 0;
       }
     }
@@ -121,83 +121,140 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Hai Tiwi Sayang ❤️</h1>
-    <img src="images/tiwi1.jpg" alt="Tiwi" class="profile-pic" />
-    <button onclick="showLove()">Klik Aku!</button>
+
+<div class="container">
+
+    <h1>Hai Zagi Sayang ❤️</h1>
+
+    <img src="images/zagi1.jpg" alt="Zagi" class="profile-pic">
+
+    <button onclick="showLove()">Klik Aku ❤️</button>
+
     <div class="message" id="loveMessage"></div>
+
     <div class="sub-message" id="subMessage"></div>
-  </div>
 
-  <!-- 🎵 Musik -->
-  <audio id="loveSong" src="music/perfect.mp3" preload="auto" loop></audio>
+</div>
 
-  <script>
-    const song = document.getElementById("loveSong");
-    song.volume = 0.5;
+<audio id="loveSong" src="music/perfect.mp3" loop></audio>
 
-    function showLove() {
-      // 🎵 Putar musik saat tombol diklik
-      song.currentTime = 0;
-      song.play();
+<script>
 
-      const msgElement = document.getElementById("loveMessage");
-      const subMsgElement = document.getElementById("subMessage");
-      const text = "❤️ HAPPY BIRTHDAY ❤️";
-      msgElement.innerHTML = "";
-      msgElement.style.display = "block";
-      subMsgElement.style.display = "none";
+const song = document.getElementById("loveSong");
+song.volume = 0.5;
 
-      let i = 0;
-      function typeWriter() {
-        if (i < text.length) {
-          msgElement.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(typeWriter, 120);
-        } else {
-          setTimeout(() => {
-            const sweetMessage =
-              "Dari Rabull🫰 love you wkwk ❤️<br>Aku tahu kamu selalu berusaha ngelakuin yang terbaik, dan aku bener-bener kagum sama kamu. Terus semangat ya, jangan lupa jaga kesehatan juga 💫 ";
-            subMsgElement.innerHTML = sweetMessage;
-            subMsgElement.style.display = "block";
+function showLove(){
 
-            // 💖 Alert balik lagi!
-            Swal.fire({
-              title: "💖 Aku Bangga Sama Kamu!",
-              html: `<div style="font-size: 16px; line-height: 1.4em; text-align: center;">
-                Selamat ulang tahun ya sayang 🎂✨ Semoga di umurmu yang baru ini, hidupmu selalu dipenuhi kebahagiaan, cinta, dan hal-hal baik yang kamu harapkan. Aku tahu jadi guru TK itu nggak mudah, tapi kamu selalu sabar, tulus, dan penuh kasih. Anak-anak beruntung banget punya kamu, dan semoga anakku juga termasuk anak-anak yg beruntung itu nanti 😄. Tetap semangat ya, aku bakal selalu ada buat kamu ❤️
-              </div>`,
-              imageUrl:
-                "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
-              imageWidth: 150,
-              imageHeight: 150,
-              width: 400,
-              background: "#ffe6eb",
-              confirmButtonText: "💌 Klik Dulu Tombol Cinta 😄",
-              confirmButtonColor: "#ff4b2b",
-            });
-          }, 500);
+    song.currentTime = 0;
+    song.play();
+
+    const msg=document.getElementById("loveMessage");
+    const sub=document.getElementById("subMessage");
+
+    msg.innerHTML="";
+    msg.style.display="block";
+    sub.style.display="none";
+
+    const text="❤️ I LOVE YOU ZAGI ❤️";
+
+    let i=0;
+
+    function type(){
+
+        if(i<text.length){
+
+            msg.innerHTML+=text.charAt(i);
+
+            i++;
+
+            setTimeout(type,120);
+
+        }else{
+
+            setTimeout(()=>{
+
+                sub.innerHTML=
+                `Terima kasih ya sayang sudah hadir di hidupku. ❤️<br><br>
+
+                Semoga kamu selalu sehat, selalu bahagia, dan semua impianmu bisa tercapai. Aku akan selalu mendukung setiap langkahmu.<br><br>
+
+                Jangan pernah ragu sama kita ya. Aku bersyukur bisa mengenal kamu, bisa ketawa bareng kamu, dan semoga kita bisa terus bersama sampai kapan pun. 🤍<br><br>
+
+                I Love You So Much, Zagi. ❤️🫶`;
+
+                sub.style.display="block";
+
+                Swal.fire({
+
+                    title:"❤️ Untuk Zagi ❤️",
+
+                    html:`
+                    <div style="line-height:1.6">
+                    Terima kasih sudah menjadi bagian terindah dalam hidupku.<br><br>
+
+                    Semoga hubungan kita selalu diberi kebahagiaan, kesabaran, dan umur panjang untuk saling menemani.<br><br>
+
+                    Aku akan selalu ada buat kamu, dalam keadaan apa pun.<br><br>
+
+                    <b>I Love You Forever ❤️</b>
+                    </div>
+                    `,
+
+                    imageUrl:"https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
+
+                    imageWidth:150,
+
+                    imageHeight:150,
+
+                    background:"#ffe6eb",
+
+                    confirmButtonColor:"#ff4b2b",
+
+                    confirmButtonText:"❤️ Aku Juga Sayang Kamu ❤️"
+
+                });
+
+            },500);
+
         }
-      }
-      typeWriter();
-      startHearts();
+
     }
 
-    function startHearts() {
-      function createHeart() {
-        let heart = document.createElement("div");
-        heart.className = "heart";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = 20 + Math.random() * 30 + "px";
-        heart.innerText = "❤️";
-        heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+    type();
+
+    startHearts();
+
+}
+
+function startHearts(){
+
+    function createHeart(){
+
+        const heart=document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=Math.random()*100+"vw";
+
+        heart.style.fontSize=(20+Math.random()*30)+"px";
+
+        heart.style.animationDuration=(3+Math.random()*3)+"s";
+
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-        setTimeout(createHeart, 150);
-      }
-      createHeart();
+
+        setTimeout(()=>heart.remove(),6000);
+
+        setTimeout(createHeart,150);
+
     }
-  </script>
+
+    createHeart();
+
+}
+
+</script>
+
 </body>
 </html>
-
